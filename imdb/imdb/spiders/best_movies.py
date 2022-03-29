@@ -20,7 +20,7 @@ class BestMoviesSpider(CrawlSpider):
 
             'year': response.xpath("(//a[@class='ipc-link ipc-link--baseAlt ipc-link--inherit-color sc-52284603-1 ifnKcw'])[1]/text()").get(),
 
-            'duration': response.xpath("//ul[@class='ipc-inline-list ipc-inline-list--show-dividers sc-52284603-0 blbaZJ baseAlt']/li[3]/text()").get(),
+            'duration': response.xpath("(//ul[@class='ipc-inline-list ipc-inline-list--show-dividers sc-52284603-0 blbaZJ baseAlt']/li[3]/text())[1]").get() + response.xpath("(//ul[@class='ipc-inline-list ipc-inline-list--show-dividers sc-52284603-0 blbaZJ baseAlt']/li[3]/text())[2]").get() + ":" + response.xpath("(//ul[@class='ipc-inline-list ipc-inline-list--show-dividers sc-52284603-0 blbaZJ baseAlt']/li[3]/text())[4]").get() + response.xpath("(//ul[@class='ipc-inline-list ipc-inline-list--show-dividers sc-52284603-0 blbaZJ baseAlt']/li[3]/text())[5]").get(),
 
             'genre': response.xpath("//div[@class='ipc-chip-list sc-16ede01-4 bMBIRz']/a/span/text()").getall(),
 
